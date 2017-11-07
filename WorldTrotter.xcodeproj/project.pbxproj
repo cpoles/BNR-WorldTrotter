@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		77012AFC1FB17707004E200B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77012AFB1FB17707004E200B /* AppDelegate.swift */; };
-		77012AFE1FB17707004E200B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77012AFD1FB17707004E200B /* ViewController.swift */; };
 		77012B011FB17707004E200B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77012AFF1FB17707004E200B /* Main.storyboard */; };
 		77012B031FB17707004E200B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77012B021FB17707004E200B /* Assets.xcassets */; };
 		77012B061FB17707004E200B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77012B041FB17707004E200B /* LaunchScreen.storyboard */; };
 		77012B111FB17707004E200B /* WorldTrotterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77012B101FB17707004E200B /* WorldTrotterTests.swift */; };
 		77012B1C1FB17707004E200B /* WorldTrotterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77012B1B1FB17707004E200B /* WorldTrotterUITests.swift */; };
+		77012B2A1FB1E711004E200B /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77012B291FB1E711004E200B /* ConversionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		77012AF81FB17707004E200B /* WorldTrotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTrotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77012AFB1FB17707004E200B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		77012AFD1FB17707004E200B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		77012B001FB17707004E200B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		77012B021FB17707004E200B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77012B051FB17707004E200B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		77012B171FB17707004E200B /* WorldTrotterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldTrotterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77012B1B1FB17707004E200B /* WorldTrotterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTrotterUITests.swift; sourceTree = "<group>"; };
 		77012B1D1FB17707004E200B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77012B291FB1E711004E200B /* ConversionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,10 +98,10 @@
 			isa = PBXGroup;
 			children = (
 				77012AFB1FB17707004E200B /* AppDelegate.swift */,
-				77012AFD1FB17707004E200B /* ViewController.swift */,
+				77012B291FB1E711004E200B /* ConversionViewController.swift */,
 				77012AFF1FB17707004E200B /* Main.storyboard */,
-				77012B021FB17707004E200B /* Assets.xcassets */,
 				77012B041FB17707004E200B /* LaunchScreen.storyboard */,
+				77012B021FB17707004E200B /* Assets.xcassets */,
 				77012B071FB17707004E200B /* Info.plist */,
 			);
 			path = WorldTrotter;
@@ -259,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77012AFE1FB17707004E200B /* ViewController.swift in Sources */,
+				77012B2A1FB1E711004E200B /* ConversionViewController.swift in Sources */,
 				77012AFC1FB17707004E200B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

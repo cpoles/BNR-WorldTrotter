@@ -96,14 +96,18 @@ class ConversionViewController : UIViewController, UITextFieldDelegate {
 //        print("Replacement String: \(string)")
         let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
         let replacementTextHasDecimalSeparator = string.range(of: ".")
+
+        //        print(existingTextHasDecimalSeparator?.description)
+        //        print(replacementTextHasDecimalSeparator?.description)
         
-//        print(existingTextHasDecimalSeparator?.description)
-//        print(replacementTextHasDecimalSeparator?.description)
+        // reject alphabetic characters
+        let alphabetic = CharacterSet.letters
+        let replacementTextHasLetters = string.rangeOfCharacter(from: alphabetic)
         
-        if existingTextHasDecimalSeparator != nil, replacementTextHasDecimalSeparator != nil {
+        if (existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil) || replacementTextHasLetters != nil {
             return false // do not accept changes if there is a decimal point in the string
         } else {
-            return true // accept the decimal point
+            return true
         }
         
     }

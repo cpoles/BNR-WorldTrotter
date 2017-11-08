@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConversionViewController : UIViewController {
+class ConversionViewController : UIViewController, UITextFieldDelegate {
     
     // MARK: Outlets
     
@@ -46,6 +46,7 @@ class ConversionViewController : UIViewController {
         return nf
     }()
     
+    
     // MARK: Class Methods
     func updateCelsiusLabel() {
         if let celsiusValue = celsiusValue {
@@ -78,6 +79,33 @@ class ConversionViewController : UIViewController {
         super.viewDidLoad()
         
         updateCelsiusLabel()
+    }
+    
+    // MARK: Delegation
+    
+    // If the existing string has a decimal separator and the replacement string has a decimal separator
+    // reject the change
+    
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        
+        
+//        print("Range: \(range.description)")
+//        print("Current String in the text field: \(textField.text)")
+//        print("Replacement String: \(string)")
+        let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
+        let replacementTextHasDecimalSeparator = string.range(of: ".")
+        
+//        print(existingTextHasDecimalSeparator?.description)
+//        print(replacementTextHasDecimalSeparator?.description)
+        
+        if existingTextHasDecimalSeparator != nil, replacementTextHasDecimalSeparator != nil {
+            return false // do not accept changes if there is a decimal point in the string
+        } else {
+            return true // accept the decimal point
+        }
+        
     }
     
 }

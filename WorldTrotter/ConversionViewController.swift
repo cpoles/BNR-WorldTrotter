@@ -83,17 +83,17 @@ class ConversionViewController : UIViewController, UITextFieldDelegate {
     
     // MARK: Delegation
     
-    // If the existing string has a decimal separator and the replacement string has a decimal separator
-    // reject the change
     
+    // use this function to validate the text as the user enters it
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
+        // If the existing string has a decimal separator and the replacement string has a decimal separator
+        // reject the change
         
-        
-//        print("Range: \(range.description)")
-//        print("Current String in the text field: \(textField.text)")
-//        print("Replacement String: \(string)")
+        //   print("Range: \(range.description)")
+        //   print("Current String in the text field: \(textField.text)")
+        //   print("Replacement String: \(string)")
         let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
         let replacementTextHasDecimalSeparator = string.range(of: ".")
 

@@ -16,12 +16,16 @@ class ConversionViewController : UIViewController {
     @IBOutlet var celsiusLabel: UILabel!
     @IBOutlet var textField: UITextField!
     
+    
+    // MARK: Computed Properties
+    
     var fahrenheitValue: Measurement<UnitTemperature>? {
         // property observer to observe for changes so that
         // whenever the value of this property changes, the observer is triggered
         didSet {
             updateCelsiusLabel() // call the updateCelsiusLabel() method
                                 // whenever the property is set
+            print("celsius label updated.")
         }
     }
     
@@ -33,27 +37,47 @@ class ConversionViewController : UIViewController {
         }
     }
     
+    // number formatter to show value in celsius with one fractional digit precision
+    let numberFormatter: NumberFormatter = {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.minimumFractionDigits = 0
+        nf.maximumFractionDigits = 1
+        return nf
+    }()
+    
     // MARK: Class Methods
     func updateCelsiusLabel() {
         if let celsiusValue = celsiusValue {
-            celsiusLabel.text = "\(celsiusValue)"
+            celsiusLabel.text = numberFormatter.string(from: NSNumber(value: celsiusValue.value))
         } else {
             celsiusLabel.text = "???"
         }
     }
     
     
-    
-    
     // MARK: Action Methods
     
     @IBAction func fahrenheitFieldEditingChanged(_ textField: UITextField) {
         // check if text field contains any text and check as it changes
-        
+        // cast the string to a double to be used with the static Measurement conversion function
+        // use optional binding to check for values
+        if let text = textField.text, let value = Double(text) {
+            fahrenheitValue = Measurement(value: value, unit: .fahrenheit)
+        } else {
+            fahrenheitValue = nil
+        }
     }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         textField.resignFirstResponder()
+    }
+    
+    // MARK: Overrides
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        updateCelsiusLabel()
     }
     
 }

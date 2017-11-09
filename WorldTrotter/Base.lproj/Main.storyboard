@@ -91,20 +91,6 @@
             </objects>
             <point key="canvasLocation" x="993" y="818"/>
         </scene>
-        <!--Map-->
-        <scene sceneID="eSb-BT-Q2p">
-            <objects>
-                <viewController id="bOf-3g-j6I" customClass="MapViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
-                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="vKG-vH-Bto">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </mapView>
-                    <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="zNY-4q-tdv"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CB6-qq-VRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="993" y="45"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ugZ-Hg-ZKy">
             <objects>
@@ -117,7 +103,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="snP-3e-ah6"/>
-                        <segue destination="bOf-3g-j6I" kind="relationship" relationship="viewControllers" id="Qo1-CR-Pln"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PgC-8c-5F9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -127,6 +112,5 @@
     </scenes>
     <resources>
         <image name="ConvertIcon" width="48" height="32"/>
-        <image name="MapIcon" width="48" height="32"/>
     </resources>
 </document>

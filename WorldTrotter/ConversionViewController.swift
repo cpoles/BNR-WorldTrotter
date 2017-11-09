@@ -87,7 +87,8 @@ class ConversionViewController : UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         let currentDateTime = Date()
-        
+        let formattedDate = DateFormatter.localizedString(from: currentDateTime, dateStyle: .long, timeStyle: .long)
+        print("The current date and time is: " + formattedDate)
         let calendar = NSCalendar.current
         let hour = calendar.component(.hour, from: currentDateTime)
         

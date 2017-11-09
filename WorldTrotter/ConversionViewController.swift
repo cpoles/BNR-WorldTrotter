@@ -85,7 +85,7 @@ class ConversionViewController : UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewDidLoad()
+        super.viewWillAppear(animated)
         
         let currentDateTime = Date()
         let formattedDate = DateFormatter.localizedString(from: currentDateTime, dateStyle: .long, timeStyle: .long)

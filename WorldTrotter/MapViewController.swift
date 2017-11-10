@@ -26,7 +26,7 @@ class MapViewController: UIViewController {
         
         segmentedControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.addTarget(self, action: #selector(MapViewController.mapTypeChanged(_:)), for: .valueChanged)
+        segmentedControl.addTarget(self, action: #selector(MapViewController.mapTypeChanged(_:)), for: .valueChanged) // event is the changing the value of the segmented control.
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         // add segmented control subview to the view
         view.addSubview(segmentedControl)

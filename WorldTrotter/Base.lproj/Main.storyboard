@@ -10,6 +10,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Web Viewer-->
+        <scene sceneID="b0W-kW-BuO">
+            <objects>
+                <viewController id="DFt-tl-Wrt" customClass="WebViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5pI-Lo-XxZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="fUK-XQ-xMC"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Web Viewer" id="Lyq-eh-I3e"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Kg-4q-C3V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="362" y="815"/>
+        </scene>
         <!--Convert-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -89,7 +105,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="993" y="818"/>
+            <point key="canvasLocation" x="-362" y="815"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ugZ-Hg-ZKy">
@@ -104,6 +120,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="snP-3e-ah6"/>
                         <segue destination="bTk-er-K0I" kind="relationship" relationship="viewControllers" id="nc5-qg-jZq"/>
+                        <segue destination="DFt-tl-Wrt" kind="relationship" relationship="viewControllers" id="6Rc-r2-hFN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PgC-8c-5F9" userLabel="First Responder" sceneMemberID="firstResponder"/>

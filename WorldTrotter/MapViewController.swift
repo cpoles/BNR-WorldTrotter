@@ -58,7 +58,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         btnCurrentLocation.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         btnCurrentLocation.setTitleColor(UIColor.white, for: .normal)
         btnCurrentLocation.setTitleColor(UIColor.red, for: .selected)
-        btnCurrentLocation.setTitle("Current Location", for: .normal)
+        let btnTitleString = NSLocalizedString("Current Location", comment: "The user current location.")
+        btnCurrentLocation.setTitle(btnTitleString, for: .normal)
         btnCurrentLocation.translatesAutoresizingMaskIntoConstraints = false
         btnCurrentLocation.addTarget(self, action: #selector(MapViewController.mapView(_:didUpdate:)), for: .touchDown)
         view.addSubview(btnCurrentLocation)

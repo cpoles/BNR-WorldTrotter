@@ -20,9 +20,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // set it as the view of this view controller
         view = mapMainView
         
-        // programmatic constraints
+        // localized strings for the segmented control
+        let standardString = NSLocalizedString("Standard", comment: "Standard Map View")
+        let satelliteString = NSLocalizedString("Satellite", comment: "Satellite Map View")
+        let hybridString = NSLocalizedString("Hybrid", comment: "Hybrid Map View")
         
-        let segmentedControl = UISegmentedControl(items: ["Standard", "Hybrid", "Satellite"])
+        
+        let segmentedControl = UISegmentedControl(items: [standardString, satelliteString, hybridString])
         
         segmentedControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         segmentedControl.selectedSegmentIndex = 0
@@ -31,6 +35,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // add segmented control subview to the view
         view.addSubview(segmentedControl)
         
+        // programmatic constraints
         // use anchors between segmented control and the view
         // layout guides
         // add a constraint between the bottom of the topLayout guide

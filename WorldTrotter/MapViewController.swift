@@ -9,16 +9,16 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate {
     
-    var mapView: MKMapView!
+    var mapMainView: MKMapView!
     
     override func loadView() {
         // create a map view
-        mapView = MKMapView()
+        mapMainView = MKMapView()
         
         // set it as the view of this view controller
-        view = mapView
+        view = mapMainView
         
         // programmatic constraints
         
@@ -46,7 +46,25 @@ class MapViewController: UIViewController {
         topConstraint.isActive = true
         leadingConstraint.isActive = true
         trailingConstraint.isActive = true
-
+        
+        
+        // create button
+        let btnCurrentLocation = UIButton(type: .roundedRect)
+        btnCurrentLocation.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        btnCurrentLocation.setTitleColor(UIColor.white, for: .normal)
+        btnCurrentLocation.setTitleColor(UIColor.red, for: .selected)
+        btnCurrentLocation.setTitle("Current Location", for: .normal)
+        btnCurrentLocation.translatesAutoresizingMaskIntoConstraints = false
+        btnCurrentLocation.addTarget(self, action: #selector(MapViewController.mapView(_:didUpdate:)), for: .touchDown)
+        view.addSubview(btnCurrentLocation)
+        
+        let btnTopConstraint = btnCurrentLocation.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40)
+        let btnLeadingConstraint = btnCurrentLocation.leadingAnchor.constraint(equalTo: margins.leadingAnchor)
+        let btnTrailingConstraint = btnCurrentLocation.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
+        
+        btnTopConstraint.isActive = true
+        btnLeadingConstraint.isActive = true
+        btnTrailingConstraint.isActive = true
         
     }
     
@@ -54,20 +72,35 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         
         print("MapViewController loaded its view.")
+        mapMainView.showsUserLocation = true
+        
+        if let latitude = mapMainView.userLocation.location?.coordinate.latitude {
+            print(latitude)
+        } else {
+            print("no location")
+        }
+     
     }
     
     
-    // MARK: - Action Methods
+    // MARK: - Delegation
     @objc func mapTypeChanged(_ segControl: UISegmentedControl) {
         switch segControl.selectedSegmentIndex {
         case 0:
-            mapView.mapType = .standard
+            mapMainView.mapType = .standard
         case 1:
-            mapView.mapType = .hybrid
+            mapMainView.mapType = .hybrid
         case 2:
-            mapView.mapType = .satellite
+            mapMainView.mapType = .satellite
         default:
             break
         }
     }
+    
+    @objc func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+      
+        
+    }
+   
+    
 }

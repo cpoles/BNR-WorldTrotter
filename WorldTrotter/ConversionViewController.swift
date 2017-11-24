@@ -62,10 +62,10 @@ class ConversionViewController : UIViewController, UITextFieldDelegate {
     
     @IBAction func fahrenheitFieldEditingChanged(_ textField: UITextField) {
         // check if text field contains any text and check as it changes
-        // cast the string to a double to be used with the static Measurement conversion function
+        // use number formatter to ensure conversion to Double using whichever decimal separator
         // use optional binding to check for values
-        if let text = textField.text, let value = Double(text) {
-            fahrenheitValue = Measurement(value: value, unit: .fahrenheit)
+        if let text = textField.text, let number = numberFormatter.number(from: text) {
+            fahrenheitValue = Measurement(value: number.doubleValue, unit: .fahrenheit)
         } else {
             fahrenheitValue = nil
         }
@@ -99,7 +99,6 @@ class ConversionViewController : UIViewController, UITextFieldDelegate {
     
     // MARK: Delegation
     
-    
     // use this function to validate the text as the user enters it
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
@@ -107,14 +106,12 @@ class ConversionViewController : UIViewController, UITextFieldDelegate {
         // If the existing string has a decimal separator and the replacement string has a decimal separator
         // reject the change
         
-        //   print("Range: \(range.description)")
-        //   print("Current String in the text field: \(textField.text)")
-        //   print("Replacement String: \(string)")
-        let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
-        let replacementTextHasDecimalSeparator = string.range(of: ".")
-
-        //        print(existingTextHasDecimalSeparator?.description)
-        //        print(replacementTextHasDecimalSeparator?.description)
+        // use Locale to ensure that textField ignore more than one decimal separator no matter which locale
+        let currentLocale = Locale.current
+        let decimalSeparator = currentLocale.decimalSeparator ?? "."
+        
+        let existingTextHasDecimalSeparator = textField.text?.range(of: decimalSeparator)
+        let replacementTextHasDecimalSeparator = string.range(of: decimalSeparator)
         
         // reject alphabetic characters
         let alphabetic = CharacterSet.letters
